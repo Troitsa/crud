@@ -1,10 +1,10 @@
-package dao;
+package dao.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionManager {
+public class ConnectionManagerImpl implements ConnectionManager {
 
     public Connection getConnection() {
         Connection connection = null;

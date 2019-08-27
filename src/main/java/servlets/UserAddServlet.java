@@ -2,7 +2,6 @@ package servlets;
 
 import pojo.User;
 import service.UserService;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -1,56 +1,32 @@
 package service;
 
+import dao.UserDAOImpl;
 import dao.UserDao;
 import pojo.User;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
 
-    public UserDao userDao = new UserDao();
+    public UserDao userDao = new UserDAOImpl();
 
     public void add(User user){
-        try {
             userDao.add(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public List<User> getAll(){
-        List<User> userList = new ArrayList<>();
-        try {
-            userList = userDao.getAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        List<User> userList = userDao.getAll();
         return userList;
     }
 
     public void updateById(User user) {
-        try {
-            userDao.update(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        userDao.update(user);
     }
 
     public User getById(int id){
-        User user = null;
-        try {
-            user = userDao.getById(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return user;
+         return userDao.getById(id);
     }
 
     public void deleteById(int id){
-        try {
-            userDao.deleteById(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        userDao.deleteById(id);
     }
 }
