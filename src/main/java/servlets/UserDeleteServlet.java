@@ -2,6 +2,7 @@ package servlets;
 
 import pojo.User;
 import service.UserService;
+import service.UserServiceImpl;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,7 @@ import java.util.List;
 @WebServlet("/delete")
 public class UserDeleteServlet extends HttpServlet {
 
-    UserService userService = new UserService();
+    UserService userService = UserServiceImpl.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
