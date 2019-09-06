@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/update")
+@WebServlet("/admin/update")
 public class UserUpdateServlet extends HttpServlet {
 
     UserService userService = UserServiceImpl.getInstance();
@@ -31,7 +31,8 @@ public class UserUpdateServlet extends HttpServlet {
         String name = req.getParameter("name");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        User user = new User(id,name,login,password);
+        String role = req.getParameter("role");
+        User user = new User(id,name,login,password,role);
         userService.updateById(user);
         List<User> userList = userService.getAll();
         req.setAttribute("userList", userList);

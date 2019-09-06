@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
     <title>Добавление пользователя</title>
 </head>
 
@@ -11,7 +11,7 @@
 
 <h1>Добавление пользователя</h1>
 
-<form action="/crud_war/add" method="post" name="addForm">
+<form action="/crud_war/admin/add" method="post" name="addForm">
     <ul>
         <li><label for="name"><b>Имя:</b> </label><input type="text" name="name" id="name"></li>
         <li><label for="login"><b>Логин:</b> </label><input type="text" name="login" id="login"></li>

@@ -37,6 +37,17 @@ public class UserServiceImpl implements UserService{
         return userDao.getById(id);
     }
 
+    @Override
+    public User getByLogin(String login, String password) {
+        User user = userDao.getByLogin(login);
+        if(user.getPassword().equals(password)) {
+            return user;
+        }
+        else {
+            return null;
+        }
+    }
+
     public void deleteById(int id){
         userDao.deleteById(id);
     }

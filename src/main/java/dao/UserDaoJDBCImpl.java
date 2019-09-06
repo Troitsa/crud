@@ -29,7 +29,30 @@ public class UserDaoJDBCImpl implements UserDao {
                         resultSet.getInt("id")
                         , resultSet.getString("name")
                         , resultSet.getString("login")
-                        , resultSet.getString("password"));
+                        , resultSet.getString("password")
+                        , resultSet.getString("role"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    @Override
+    public User getByLogin(String login) {
+        ResultSet resultSet;
+        User user = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE login= ?");
+            preparedStatement.setString(1, login);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                user = new User(
+                        resultSet.getInt("id")
+                        , resultSet.getString("name")
+                        , resultSet.getString("login")
+                        , resultSet.getString("password")
+                        , resultSet.getString("role"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,7 +73,8 @@ public class UserDaoJDBCImpl implements UserDao {
                         resultSet.getInt("id")
                         , resultSet.getString("name")
                         , resultSet.getString("login")
-                        , resultSet.getString("password"));
+                        , resultSet.getString("password")
+                        , resultSet.getString("role"));
                 result.add(user);
             }
         } catch (SQLException e) {
